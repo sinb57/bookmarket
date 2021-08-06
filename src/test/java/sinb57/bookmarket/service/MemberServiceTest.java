@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import sinb57.bookmarket.dto.member.MemberDto;
-import sinb57.bookmarket.mapper.member.MemberMapper;
 import sinb57.bookmarket.service.member.MemberService;
 
 import static org.assertj.core.api.Assertions.assertThat;
