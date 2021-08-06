@@ -1,4 +1,4 @@
-package sinb57.bookmarket.service;
+package sinb57.bookmarket.service.member;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
