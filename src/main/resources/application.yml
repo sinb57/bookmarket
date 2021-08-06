@@ -1,1 +1,12 @@
 server.port: 80
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:bookmarketDB
+    driver-class-name: org.h2.Driver
+    username: sa
+
+  h2:
+    console:
+      enabled: true
+      path: /h2/console
