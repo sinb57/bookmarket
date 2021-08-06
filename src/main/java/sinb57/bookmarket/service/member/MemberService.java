@@ -6,5 +6,5 @@ public interface MemberService {
 
     void join(MemberDto member);
 
-    MemberDto findByEmail(String email);
+    MemberDto getMemberByEmail(String email);
 }

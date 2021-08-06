@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDto findByEmail(String email) {
+    public MemberDto getMemberByEmail(String email) {
         return memberMapper.findByEmail(email);
     }
 }

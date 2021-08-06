@@ -38,8 +38,8 @@ public class MemberServiceTest {
         memberService.join(member2);
 
         // then
-        MemberDto searchedMember1 = memberService.findByEmail(email1);
-        MemberDto searchedMember2 = memberService.findByEmail(email2);
+        MemberDto searchedMember1 = memberService.getMemberByEmail(email1);
+        MemberDto searchedMember2 = memberService.getMemberByEmail(email2);
 
         assertThat(searchedMember1.getEmail()).isEqualTo(email1);
         assertThat(searchedMember1.getUsername()).isEqualTo(username1);
