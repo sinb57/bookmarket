@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sinb57.bookmarket.mapper.book.BookMapper">
+
+    <insert id="save" parameterType="sinb57.bookmarket.dto.book.BookDto">
+        insert into book (CATEGORY_ID, NAME, DESCRIPTION, STOCK, PRICE)
+            VALUES ( #{category_id}, #{name}, #{description}, #{stock}, #{price} )
+    </insert>
+
+    <select id="findById" parameterType="Long" resultType="sinb57.bookmarket.dto.book.BookDto">
+        select id, category_id, name, description, stock, price from book
+            where id = #{id}
+    </select>
+
+</mapper>
