@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import sinb57.bookmarket.domain.member.Member;
+import sinb57.bookmarket.dto.member.MemberDto;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -29,16 +30,16 @@ public class MemberMapperTest {
         String username2 = "username2";
         String password2 = "password2";
 
-        Member member1 = createMember(email1, username1, password1);
-        Member member2 = createMember(email2, username2, password2);
+        MemberDto member1 = createMember(email1, username1, password1);
+        MemberDto member2 = createMember(email2, username2, password2);
 
         // when
         memberMapper.save(member1);
         memberMapper.save(member2);
 
         // then
-        Member searchedMember1 = memberMapper.findByEmail(email1);
-        Member searchedMember2 = memberMapper.findByEmail(email2);
+        MemberDto searchedMember1 = memberMapper.findByEmail(email1);
+        MemberDto searchedMember2 = memberMapper.findByEmail(email2);
 
         assertThat(searchedMember1.getEmail()).isEqualTo(email1);
         assertThat(searchedMember1.getUsername()).isEqualTo(username1);
@@ -49,8 +50,8 @@ public class MemberMapperTest {
         assertThat(searchedMember2.getPassword()).isEqualTo(password2);
     }
 
-    private Member createMember(String email, String username, String password) {
-        return Member.builder()
+    private MemberDto createMember(String email, String username, String password) {
+        return MemberDto.builder()
                 .email(email)
                 .username(username)
                 .password(password)

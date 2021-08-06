@@ -5,12 +5,12 @@
 
 <mapper namespace="sinb57.bookmarket.mapper.member.MemberMapper">
 
-    <insert id="save" parameterType="sinb57.bookmarket.domain.member.Member">
+    <insert id="save" parameterType="sinb57.bookmarket.dto.member.MemberDto">
         insert into MEMBER (EMAIL, USERNAME, password)
             values ( #{email}, #{username}, #{password} )
     </insert>
 
-    <select id="findByEmail" parameterType="String" resultType="sinb57.bookmarket.domain.member.Member">
+    <select id="findByEmail" parameterType="String" resultType="sinb57.bookmarket.dto.member.MemberDto">
         select id, email, username, password from MEMBER where email = #{email}
     </select>
 
