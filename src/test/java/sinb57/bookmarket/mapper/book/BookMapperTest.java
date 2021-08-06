@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+import sinb57.bookmarket.dto.book.BookDto;
 import sinb57.bookmarket.dto.book.CategoryDto;
 
 import java.util.List;
@@ -43,5 +44,28 @@ public class BookMapperTest {
 
         }
 
+    }
+
+    @Test
+    @DisplayName("도서 추가 기능 테스트")
+    @Transactional
+    void saveBookTest() {
+
+        CategoryDto category = CategoryDto.builder()
+                .name("categoryName").build();
+
+        categoryMapper.save(category);
+
+
+        BookDto book = BookDto.builder()
+                .category_id(1L).name("도서1")
+                .description("설명~~").stock(10).price(10000)
+                .build();
+
+        bookMapper.save(book);
+
+        BookDto book1 = bookMapper.findById(1L);
+
+        Assertions.assertThat(book1.getName()).isEqualTo("도서1");
     }
 }
