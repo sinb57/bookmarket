@@ -6,4 +6,8 @@ import sinb57.bookmarket.domain.member.Member;
 @Mapper
 public interface MemberMapper {
 
+    void save(Member member);
+
+    Member findByEmail(String email);
+
 }
