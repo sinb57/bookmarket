@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/meta-data.html :: meta-data"></th:block>
+    <link type="text/css" th:href="@{/css/base.css}" rel="stylesheet">
+    <link type="text/css" th:href="@{/css/bookList.css}" rel="stylesheet">
+</head>
+
+<body>
+<div class="header-section section" id="sticky-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="header-logo" th:src="@{/img/logo.png}" alt="로고">
+            </div>
+            <div class="col-md-4">
+                <menu id="headerMenu">
+                    <a href="/members/">로그인</a>
+                    <a href="/members/logout">로그아웃</a>
+                </menu>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-banner-section section">
+    <div class="container">
+        <div class="page-banner text-center">
+            <h1 class="page-banner-title">Books</h1>
+        </div>
+    </div>
+</div>
+
+<div class="book-section main-section section">
+    <div class="container">
+        <div class="book-wrap grid row">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-12 mb-5" th:each="book:${bookList}">
+                <div class="book-item">
+                    <div class="book-item-image text-center">
+                        <img class="align-middle" th:src="@{/img/book_image1.jpg}" alt="이미지">
+                    </div>
+                    <div class="book-item-content">
+                        <div class="book-name" th:text="${book.name}"></div>
+                        <div class="book-price" th:text="${book.price}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-section section">
+    <div class="container">
+
+    </div>
+</div>
+</body>
+</html>
