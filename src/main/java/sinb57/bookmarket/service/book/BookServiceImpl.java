@@ -28,6 +28,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<BookDto> getBookList() {
+        return bookMapper.findAll();
+    }
+
+    @Override
     public void registerCategory(CategoryDto categoryDto) {
         categoryMapper.save(categoryDto);
     }

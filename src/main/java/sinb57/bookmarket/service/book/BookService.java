@@ -11,6 +11,8 @@ public interface BookService {
 
     BookDto getBookById(Long id);
 
+    List<BookDto> getBookList();
+
     void registerCategory(CategoryDto categoryDto);
 
     CategoryDto getCategoryById(Long id);

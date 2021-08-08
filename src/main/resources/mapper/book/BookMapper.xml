@@ -15,4 +15,8 @@
             where id = #{id}
     </select>
 
+    <select id="findAll" resultType="sinb57.bookmarket.dto.book.BookDto">
+        select * from book
+    </select>
+
 </mapper>
