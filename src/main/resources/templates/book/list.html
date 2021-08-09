@@ -22,15 +22,36 @@
 <!-- main -->
 <div class="book-section main-section section">
     <div class="container">
-        <div class="book-wrap grid row">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-12 mb-5" th:each="book:${bookList}">
+        <div class="book-option">
+            <div class="book-search">
+                <input class="book-search-input">
+            </div>
+            <div class="book-category align-middle">
+                <ul class="book-category-list">
+                    <li class="book-category-list-item select">전체</li>
+                    <li class="separator">|</li>
+                    <li class="book-category-list-item">추리/미스테리</li>
+                    <li class="separator">|</li>
+                    <li class="book-category-list-item">판타지/환상문학</li>
+                    <li class="separator">|</li>
+                    <li class="book-category-list-item">과학소설(SF)</li>
+                    <li class="separator">|</li>
+                    <li class="book-category-list-item">호러/공포</li>
+                    <li class="separator">|</li>
+                    <li class="book-category-list-item">액션/스릴러</li>
+                </ul>
+            </div>
+        </div>
+        <div class="book-container row">
+            <div class="col mb-5" th:each="book:${bookList}">
                 <div class="book-item">
                     <div class="book-item-image text-center">
                         <img class="align-middle" th:src="@{/img/book_image1.jpg}" alt="이미지">
                     </div>
-                    <div class="book-item-content">
+                    <div class="separator"></div>
+                    <div class="book-item-content text-center">
                         <div class="book-name" th:text="${book.name}"></div>
-                        <div class="book-price" th:text="${book.price}"></div>
+                        <div class="book-price" th:text="|판매가: ${book.price}원|"></div>
                     </div>
                 </div>
             </div>
