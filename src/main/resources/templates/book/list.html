@@ -7,22 +7,10 @@
 </head>
 
 <body>
-<div class="header-section section" id="sticky-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img class="header-logo" th:src="@{/img/logo.png}" alt="로고">
-            </div>
-            <div class="col-md-4">
-                <menu id="headerMenu">
-                    <a href="/members/">로그인</a>
-                    <a href="/members/logout">로그아웃</a>
-                </menu>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- header -->
+<th:block th:replace="fragments/header.html :: header-section"></th:block>
 
+<!-- banner -->
 <div class="page-banner-section section">
     <div class="container">
         <div class="page-banner text-center">
@@ -31,6 +19,7 @@
     </div>
 </div>
 
+<!-- main -->
 <div class="book-section main-section section">
     <div class="container">
         <div class="book-wrap grid row">
@@ -49,10 +38,8 @@
     </div>
 </div>
 
-<div class="footer-section section">
-    <div class="container">
+<!-- footer -->
+<th:block th:replace="fragments/footer.html :: footer-section"></th:block>
 
-    </div>
-</div>
 </body>
 </html>

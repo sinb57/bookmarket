@@ -1,0 +1,17 @@
+<body th:fragment="header-section">
+<div class="header-section section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="header-logo" th:src="@{/img/logo.png}" alt="로고">
+            </div>
+            <div class="col-md-4">
+                <menu id="headerMenu">
+                    <a href="/members/">로그인</a>
+                    <a href="/members/logout">로그아웃</a>
+                </menu>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
