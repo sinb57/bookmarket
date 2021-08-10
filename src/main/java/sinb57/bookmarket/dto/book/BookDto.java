@@ -1,5 +1,7 @@
 package sinb57.bookmarket.dto.book;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -14,8 +16,10 @@ public class BookDto {
     private int stock;
     private int price;
 
+    @JsonCreator
     @Builder
-    public BookDto(Long id, Long category_id, String name, int stock, int price) {
+    public BookDto(@JsonProperty("id") Long id, @JsonProperty("category") Long category_id,
+                   @JsonProperty("name") String name, @JsonProperty("stock") int stock, @JsonProperty("price") int price) {
         this.id = id;
         this.category_id = category_id;
         this.name = name;
