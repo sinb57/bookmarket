@@ -56,7 +56,7 @@ public class BookServiceTest {
 
         BookDto book = BookDto.builder()
                 .category_id(1L).name("도서1")
-                .description("설명~~").stock(10).price(10000)
+                .stock(10).price(10000)
                 .build();
 
         bookService.registerBook(book);
