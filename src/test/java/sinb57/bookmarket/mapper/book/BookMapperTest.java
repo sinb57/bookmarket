@@ -51,21 +51,8 @@ public class BookMapperTest {
     @Transactional
     void saveBookTest() {
 
-        CategoryDto category = CategoryDto.builder()
-                .name("categoryName").build();
-
-        categoryMapper.save(category);
-
-
-        BookDto book = BookDto.builder()
-                .category_id(1L).name("도서1")
-                .description("설명~~").stock(10).price(10000)
-                .build();
-
-        bookMapper.save(book);
-
         BookDto book1 = bookMapper.findById(1L);
 
-        Assertions.assertThat(book1.getName()).isEqualTo("도서1");
+        Assertions.assertThat(book1.getName()).isEqualTo("꼭두각시 살인사건");
     }
 }
