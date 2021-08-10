@@ -2,7 +2,9 @@ package sinb57.bookmarket.dto.member;
 
 import lombok.Builder;
 import lombok.Getter;
+import org.apache.ibatis.type.Alias;
 
+@Alias("member")
 @Getter
 public class MemberDto {
 
