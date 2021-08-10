@@ -1,14 +1,12 @@
 package sinb57.bookmarket.controller.book;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import sinb57.bookmarket.dto.book.BookDto;
 import sinb57.bookmarket.service.book.BookService;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class BookController {
 
     private final BookService bookService;
@@ -17,6 +15,31 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    @GetMapping("/books")
+    public List<BookDto> list() {
+        return bookService.getBookList();
+    }
+
+    @GetMapping("/books/{id}")
+    public String showBook(@PathVariable("id") Long bookId) {
+        BookDto book = bookService.getBookById(bookId);
+        return book.toString();
+    }
+
+    @GetMapping("/books/register")
+    public String registerBook() {
+        return null;
+    }
+
+
+    @PostMapping("/books/register")
+    public String registerBook(@RequestBody BookDto book) {
+        bookService.registerBook(book);
+        return book.toString();
+    }
+
+
+    /*
     @GetMapping("/books")
     public String bookList(Model model) {
         List<BookDto> bookList = bookService.getBookList();
@@ -59,5 +82,5 @@ public class BookController {
     public String deleteBook(@PathVariable("id") String bookId) {
         return null;
     }
-
+    */
 }
