@@ -11,8 +11,8 @@ import org.apache.ibatis.type.Alias;
 public class BookSearchOptionDto {
 
     private String keyword;
-    private int page = 0;
-    private int offset = 12;
+    private int page;
+    private int offset;
 
     @JsonCreator
     @Builder
@@ -24,7 +24,7 @@ public class BookSearchOptionDto {
             page = 1;
         }
 
-        if (page == 0) {
+        if (offset == 0) {
             offset = 12;
         }
 
