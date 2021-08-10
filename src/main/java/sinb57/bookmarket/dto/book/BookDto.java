@@ -20,8 +20,11 @@ public class BookDto {
 
     @JsonCreator
     @Builder
-    public BookDto(@JsonProperty("id") Long id, @JsonProperty("category") Long category_id,
-                   @JsonProperty("name") String name, @JsonProperty("stock") int stock, @JsonProperty("price") int price) {
+    public BookDto(@JsonProperty("id") Long id,
+                   @JsonProperty("category") Long category_id,
+                   @JsonProperty("name") String name,
+                   @JsonProperty("stock") int stock,
+                   @JsonProperty("price") int price) {
         this.id = id;
         this.category_id = category_id;
         this.name = name;

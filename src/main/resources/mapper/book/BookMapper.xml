@@ -19,4 +19,8 @@
         select * from book
     </select>
 
+    <select id="search" parameterType="bookSearchOption" resultType="book">
+        select * from book where NAME like CONCAT('%',#{keyword},'%') limit #{offset} offset #{page}
+    </select>
+
 </mapper>

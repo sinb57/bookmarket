@@ -2,6 +2,7 @@ package sinb57.bookmarket.controller.book;
 
 import org.springframework.web.bind.annotation.*;
 import sinb57.bookmarket.dto.book.BookDto;
+import sinb57.bookmarket.dto.book.BookSearchOptionDto;
 import sinb57.bookmarket.service.book.BookService;
 
 import java.util.List;
@@ -18,6 +19,12 @@ public class BookController {
     @GetMapping("/books")
     public List<BookDto> list() {
         return bookService.getBookList();
+    }
+
+    @PostMapping("/books")
+    public List<BookDto> list(@RequestBody BookSearchOptionDto searchOption) {
+        List<BookDto> bookList = bookService.getBookList(searchOption);
+        return bookList;
     }
 
     @GetMapping("/books/{id}")

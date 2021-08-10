@@ -2,6 +2,7 @@ package sinb57.bookmarket.service.book;
 
 import sinb57.bookmarket.dto.book.BookDto;
 import sinb57.bookmarket.dto.book.CategoryDto;
+import sinb57.bookmarket.dto.book.BookSearchOptionDto;
 import sinb57.bookmarket.mapper.book.BookMapper;
 import sinb57.bookmarket.mapper.book.CategoryMapper;
 
@@ -31,6 +32,12 @@ public class BookServiceImpl implements BookService {
     public List<BookDto> getBookList() {
         return bookMapper.findAll();
     }
+
+    @Override
+    public List<BookDto> getBookList(BookSearchOptionDto searchOption) {
+        return bookMapper.search(searchOption);
+    }
+
 
     @Override
     public void registerCategory(CategoryDto categoryDto) {
