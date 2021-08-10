@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import sinb57.bookmarket.domain.member.Member;
 import sinb57.bookmarket.dto.member.MemberDto;
 
 import static org.assertj.core.api.Assertions.*;
