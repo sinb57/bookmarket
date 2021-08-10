@@ -5,15 +5,15 @@
 
 <mapper namespace="sinb57.bookmarket.mapper.book.CategoryMapper">
 
-    <insert id="save" parameterType="sinb57.bookmarket.dto.book.CategoryDto">
+    <insert id="save" parameterType="category">
         insert into CATEGORY (NAME) values ( #{name} )
     </insert>
 
-    <select id="findById" parameterType="Long" resultType="sinb57.bookmarket.dto.book.CategoryDto">
+    <select id="findById" parameterType="Long" resultType="category">
         select id, name from CATEGORY where id = #{id}
     </select>
 
-    <select id="findAll" resultType="sinb57.bookmarket.dto.book.CategoryDto">
+    <select id="findAll" resultType="category">
         select * from CATEGORY;
     </select>
 </mapper>

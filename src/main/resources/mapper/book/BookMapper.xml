@@ -5,17 +5,17 @@
 
 <mapper namespace="sinb57.bookmarket.mapper.book.BookMapper">
 
-    <insert id="save" parameterType="sinb57.bookmarket.dto.book.BookDto">
+    <insert id="save" parameterType="book">
         insert into book (CATEGORY_ID, NAME, STOCK, PRICE)
             VALUES ( #{category_id}, #{name}, #{stock}, #{price} )
     </insert>
 
-    <select id="findById" parameterType="Long" resultType="sinb57.bookmarket.dto.book.BookDto">
+    <select id="findById" parameterType="Long" resultType="book">
         select id, category_id, name, stock, price from book
             where id = #{id}
     </select>
 
-    <select id="findAll" resultType="sinb57.bookmarket.dto.book.BookDto">
+    <select id="findAll" resultType="book">
         select * from book
     </select>
 

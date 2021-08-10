@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
+import org.apache.ibatis.type.Alias;
 
+@Alias("book")
 @Getter
 @ToString
 public class BookDto {

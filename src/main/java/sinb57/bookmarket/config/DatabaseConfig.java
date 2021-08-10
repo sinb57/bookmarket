@@ -20,6 +20,7 @@ public class DatabaseConfig {
         sqlSessionFactory.setDataSource(dataSource);
         sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
                 .getResources("classpath:mapper/**/*.xml"));
+        sqlSessionFactory.setTypeAliasesPackage("sinb57.bookmarket.dto");
         return sqlSessionFactory.getObject();
     }
 
