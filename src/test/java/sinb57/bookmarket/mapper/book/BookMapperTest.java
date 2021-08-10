@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import sinb57.bookmarket.dto.book.BookDto;
+import sinb57.bookmarket.dto.book.BookSearchOptionDto;
 import sinb57.bookmarket.dto.book.CategoryDto;
 
 import java.util.List;
@@ -54,5 +55,22 @@ public class BookMapperTest {
         BookDto book1 = bookMapper.findById(1L);
 
         Assertions.assertThat(book1.getName()).isEqualTo("꼭두각시 살인사건");
+    }
+
+
+    @Test
+    @DisplayName("도서 검색 기능 테스트")
+    void searchBookTest() {
+
+        BookSearchOptionDto searchOption =
+                BookSearchOptionDto.builder()
+                        .keyword("파랑")
+                        .page(0)
+                        .offset(0)
+                        .build();
+
+        BookDto book = bookMapper.search(searchOption).get(0);
+
+        Assertions.assertThat(book.getName()).isEqualTo("천 개의 파랑");
     }
 }
