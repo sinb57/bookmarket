@@ -15,7 +15,6 @@ CREATE TABLE book (
     id          int primary key auto_increment,
     category_id int,
     name        varchar,
-    description varchar,
     stock       int,
     price       int
 );

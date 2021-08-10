@@ -6,12 +6,12 @@
 <mapper namespace="sinb57.bookmarket.mapper.book.BookMapper">
 
     <insert id="save" parameterType="sinb57.bookmarket.dto.book.BookDto">
-        insert into book (CATEGORY_ID, NAME, DESCRIPTION, STOCK, PRICE)
-            VALUES ( #{category_id}, #{name}, #{description}, #{stock}, #{price} )
+        insert into book (CATEGORY_ID, NAME, STOCK, PRICE)
+            VALUES ( #{category_id}, #{name}, #{stock}, #{price} )
     </insert>
 
     <select id="findById" parameterType="Long" resultType="sinb57.bookmarket.dto.book.BookDto">
-        select id, category_id, name, description, stock, price from book
+        select id, category_id, name, stock, price from book
             where id = #{id}
     </select>
 
