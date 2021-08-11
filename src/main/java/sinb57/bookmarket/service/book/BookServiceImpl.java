@@ -7,6 +7,7 @@ import sinb57.bookmarket.mapper.book.BookMapper;
 import sinb57.bookmarket.mapper.book.CategoryMapper;
 
 import java.util.List;
+import java.util.Optional;
 
 public class BookServiceImpl implements BookService {
 
@@ -25,7 +26,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookDto getBookById(Long id) {
-        return bookMapper.findById(id);
+        Optional<BookDto> book = bookMapper.findById(id);
+        // EXCEPTION
+        return book.orElseThrow(() -> new IllegalStateException("도서를 찾을 수 없습니다."));
     }
 
     @Override
@@ -39,6 +42,8 @@ public class BookServiceImpl implements BookService {
     }
 
 
+
+
     @Override
     public void registerCategory(CategoryDto categoryDto) {
         categoryMapper.save(categoryDto);
@@ -46,11 +51,15 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public CategoryDto getCategoryById(Long id) {
-        return categoryMapper.findById(id);
+        Optional<CategoryDto> category = categoryMapper.findById(id);
+        // EXCEPTION
+        return category.orElseThrow(() -> new IllegalStateException("카테고리를 찾을 수 없습니다."));
     }
 
     @Override
     public List<CategoryDto> getCategoryList() {
         return categoryMapper.findAll();
     }
+
 }
+

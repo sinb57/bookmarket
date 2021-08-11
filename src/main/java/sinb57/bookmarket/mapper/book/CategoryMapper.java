@@ -4,13 +4,14 @@ import org.apache.ibatis.annotations.Mapper;
 import sinb57.bookmarket.dto.book.CategoryDto;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface CategoryMapper {
 
     void save(CategoryDto category);
 
-    CategoryDto findById(Long id);
+    Optional<CategoryDto> findById(Long id);
 
     List<CategoryDto> findAll();
     
