@@ -32,6 +32,16 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public List<MemberDto> getMemeberList() {
+        return memberMapper.findAll();
+    }
+
+    @Override
+    public List<MemberDto> getMemeberList(MemberSearchOptionDto memberSearchOption) {
+        return memberMapper.search(memberSearchOption);
+    }
+
+    @Override
     public MemberDto loadUserByUsername(String email) throws UsernameNotFoundException {
         return getMemberByEmail(email);
     }
