@@ -28,7 +28,7 @@
                 username
             </when>
         </choose>
-        like concat('%', #{keyword}, '%')
+        like concat('%', #{keyword}, '%') limit #{offset} offset #{page}
     </select>
 
 </mapper>
