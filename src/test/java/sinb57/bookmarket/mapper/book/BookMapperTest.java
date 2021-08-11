@@ -11,6 +11,10 @@ import sinb57.bookmarket.dto.book.BookSearchOptionDto;
 import sinb57.bookmarket.dto.book.CategoryDto;
 
 import java.util.List;
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class BookMapperTest {
@@ -41,7 +45,7 @@ public class BookMapperTest {
             String categoryName = "cateogoryName" + i;
             CategoryDto searchedCategory = result.get(i);
 
-            Assertions.assertThat(searchedCategory.getName()).isEqualTo("categoryName" + i);
+            assertThat(searchedCategory.getName()).isEqualTo("categoryName" + i);
 
         }
 
@@ -52,9 +56,11 @@ public class BookMapperTest {
     @Transactional
     void saveBookTest() {
 
-        BookDto book1 = bookMapper.findById(1L);
+        Optional<BookDto> book1 = bookMapper.findById(1L);
 
-        Assertions.assertThat(book1.getName()).isEqualTo("꼭두각시 살인사건");
+        assertTrue(book1.isPresent());
+
+        assertThat(book1.get().getName()).isEqualTo("꼭두각시 살인사건");
     }
 
 
@@ -71,6 +77,6 @@ public class BookMapperTest {
 
         BookDto book = bookMapper.search(searchOption).get(0);
 
-        Assertions.assertThat(book.getName()).isEqualTo("천 개의 파랑");
+        assertThat(book.getName()).isEqualTo("천 개의 파랑");
     }
 }
