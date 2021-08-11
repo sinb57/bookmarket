@@ -14,6 +14,11 @@ import sinb57.bookmarket.service.member.MemberServiceImpl;
 public class ApplicationConfig {
 
     @Bean
+    public WebSecurityConfig webSecurityConfig(MemberService memberService) {
+        return new WebSecurityConfig(memberService);
+    }
+
+    @Bean
     public MemberService memberService(MemberMapper memberMapper) {
         return new MemberServiceImpl(memberMapper);
     }
