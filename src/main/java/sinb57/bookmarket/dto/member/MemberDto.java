@@ -2,6 +2,7 @@ package sinb57.bookmarket.dto.member;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 import org.apache.ibatis.type.Alias;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,7 @@ import java.util.Collection;
 
 @Alias("member")
 @Getter
+@ToString
 public class MemberDto implements UserDetails {
 
     private String email;
