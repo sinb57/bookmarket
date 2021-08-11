@@ -14,4 +14,21 @@
         select id, email, username, password from MEMBER where email = #{email}
     </select>
 
+    <select id="findAll" resultType="member">
+        select * from MEMBER
+    </select>
+
+    <select id="search" parameterType="memberSearchOption" resultType="member">
+        select * from MEMBER where
+        <choose>
+            <when test="type == 'email'">
+                email
+            </when>
+            <when test="type == 'username'">
+                username
+            </when>
+        </choose>
+        like concat('%', #{keyword}, '%')
+    </select>
+
 </mapper>
